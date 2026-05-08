@@ -1,37 +1,80 @@
-# EncryptionSDK
+# Crypto Service
+A lightweight Node.js encryption/decryption service that supports AES-256-GCM and RSA-OAEP algorithms, providing HTTP APIs for secure data processing.
 
-#### 介绍
-支持两种加密方式（AES & RSA）。
+## Features
+- Supports two encryption algorithms: AES-256-GCM and RSA-OAEP
+- Automatic generation and loading of encryption keys (stored in `crypto_keys` directory)
+- Simple HTTP API interface for encryption, decryption, and service status query
+- Complies with the GNU Lesser General Public License v3 (LGPLv3)
+- Secure key storage with restricted file permissions (0o700 for directory, 0o600 for key files)
 
-#### 软件架构
-软件架构说明
+## Prerequisites
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher)
 
+## Installation
+1. Clone the repository
+```bash
+git clone https://github.com/your-username/crypto-service.git
+cd crypto-service
+```
 
-#### 安装教程
+2. Install dependencies (if any, currently no external dependencies required)
+```bash
+npm install
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Usage
+1. Start the service
+```bash
+node index.js
+```
+The service will run on `http://localhost:4856` by default.
 
-#### 使用说明
+2. API Endpoints
+| Method | Endpoint | Description | Request Body | Response |
+|--------|----------|-------------|--------------|----------|
+| GET | /s | Query service status | None | `{"status": "running", "port": 4856, "algorithms": ["AES", "RSA"]}` |
+| GET | /a | Query service information (copyright & version) | None | `{"copyright": "©️ 2026 BlackTL", "version": "1.0.0"}` |
+| POST | /e | Encrypt data | `{"algorithm": "AES/RSA", "data": "plaintext"}` | `{"algorithm": "AES/RSA", "result": "encrypted-base64-string"}` |
+| POST | /u | Decrypt data | `{"algorithm": "AES/RSA", "data": "encrypted-base64-string"}` | `{"algorithm": "AES/RSA", "result": "decrypted-plaintext/error-message"}` |
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### Example Requests
+#### Encrypt with AES
+```bash
+curl -X POST http://localhost:4856/e \
+  -H "Content-Type: application/json" \
+  -d '{"algorithm": "AES", "data": "Hello Crypto Service"}'
+```
 
-#### 参与贡献
+#### Decrypt with AES
+```bash
+curl -X POST http://localhost:4856/u \
+  -H "Content-Type: application/json" \
+  -d '{"algorithm": "AES", "data": "encrypted-base64-result-from-above"}'
+```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## Key Management
+- All encryption keys are stored in the `crypto_keys` directory:
+  - `aes.key`: AES-256 key (32 bytes)
+  - `rsa_private.pem`: RSA private key (2048 bits, PKCS8 format)
+  - `rsa_public.pem`: RSA public key (2048 bits, SPKI format)
+- Keys are automatically generated if they do not exist
+- Key files have restricted permissions to ensure security (only the owner can read/write)
 
+## License
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-#### 特技
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+## Version
+1.0.0

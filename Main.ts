@@ -89,7 +89,7 @@ async function requestListener(req, res) {
     }
     if (method === 'GET' && url === '/a') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ copyright: '©️ 2026 BlackTL', version: VERSION }));
+        res.end(JSON.stringify({ copyright: '©️ 2026 WBlackTL', version: VERSION }));
         return;
     }
     if (method === 'POST' && url === '/e') {

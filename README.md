@@ -35,7 +35,7 @@ The service will run on `http://localhost:4856` by default.
 | Method | Endpoint | Description | Request Body | Response |
 |--------|----------|-------------|--------------|----------|
 | GET | /s | Query service status | None | `{"status": "running", "port": 4856, "algorithms": ["AES", "RSA"]}` |
-| GET | /a | Query service information (copyright & version) | None | `{"copyright": "©️ 2026 BlackTL", "version": "1.0.0"}` |
+| GET | /a | Query service information (copyright & version) | None | `{"copyright": "©️ 2026 WBlackTL", "version": "1.0.0"}` |
 | POST | /e | Encrypt data | `{"algorithm": "AES/RSA", "data": "plaintext"}` | `{"algorithm": "AES/RSA", "result": "encrypted-base64-string"}` |
 | POST | /u | Decrypt data | `{"algorithm": "AES/RSA", "data": "encrypted-base64-string"}` | `{"algorithm": "AES/RSA", "result": "decrypted-plaintext/error-message"}` |
 

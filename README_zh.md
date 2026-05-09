@@ -35,7 +35,7 @@ node index.js
 | 请求方法 | 接口地址 | 接口描述 | 请求体 | 响应结果 |
 |----------|----------|----------|--------|----------|
 | GET | /s | 查询服务运行状态 | 无 | `{"status": "running", "port": 4856, "algorithms": ["AES", "RSA"]}` |
-| GET | /a | 查询服务信息（版权及版本） | 无 | `{"copyright": "©️ 2026 BlackTL", "version": "1.0.0"}` |
+| GET | /a | 查询服务信息（版权及版本） | 无 | `{"copyright": "©️ 2026 WBlackTL", "version": "1.0.0"}` |
 | POST | /e | 对数据进行加密 | `{"algorithm": "AES/RSA", "data": "明文数据"}` | `{"algorithm": "AES/RSA", "result": "加密后的base64字符串"}` |
 | POST | /u | 对数据进行解密 | `{"algorithm": "AES/RSA", "data": "加密后的base64字符串"}` | `{"algorithm": "AES/RSA", "result": "解密后的明文/错误信息"}` |
 

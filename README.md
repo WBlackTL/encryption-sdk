@@ -1,5 +1,6 @@
 # Crypto Service
 A lightweight Node.js encryption/decryption service that supports AES-256-GCM and RSA-OAEP algorithms, providing HTTP APIs for secure data processing.
+[简体中文](https://github.com/WBlackTL/encryption-sdk/blob/master/README_zh.md) [English](https://github.com/WBlackTL/encryption-sdk/blob/master/README.md)
 
 ## Features
 - Supports two encryption algorithms: AES-256-GCM and RSA-OAEP

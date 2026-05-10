@@ -1,5 +1,6 @@
 # 加密服务（Crypto Service）
 一个轻量级 Node.js 加密解密服务，支持 AES-256-GCM 和 RSA-OAEP 两种加密算法，提供 HTTP 接口用于安全数据处理。
+[简体中文](https://github.com/WBlackTL/encryption-sdk/blob/master/README_zh.md) [English](https://github.com/WBlackTL/encryption-sdk/blob/master/README.md)
 
 ## 功能特性
 - 支持两种加密算法：AES-256-GCM（对称加密）和 RSA-OAEP（非对称加密）
